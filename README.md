@@ -2,7 +2,9 @@
 
 Welcome to the Rick and Morty API Web App, where you can explore data from the beloved show Rick and Morty! 🚀🌌
 
-![GIF Rick and Mory](https://media.giphy.com/media/v1.Y2lkPTc5MGI3NjExZnA1NWVnNXgzY283ejZoZ3ZheGpqMm1qN2xkYnFxZDJ4Y29tYXV3dSZlcD12MV9pbnRlcm5hbF9naWZfYnlfaWQmY3Q9Zw/3o85xuO1siCT147FrG/giphy.gif)
+<p align="center">
+  <img src="https://media.giphy.com/media/v1.Y2lkPTc5MGI3NjExZnA1NWVnNXgzY283ejZoZ3ZheGpqMm1qN2xkYnFxZDJ4Y29tYXV3dSZlcD12MV9pbnRlcm5hbF9naWZfYnlfaWQmY3Q9Zw/3o85xuO1siCT147FrG/giphy.gif" alt="GIF Rick and Mory">
+</p>
 
 ## 🛠️ Getting Started
 
