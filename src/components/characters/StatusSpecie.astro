@@ -1,0 +1,35 @@
+---
+import type { Status } from "../../models/api.model.ts";
+
+interface Props {
+    status: Status;
+    species: string;
+}
+
+const { status, species } = Astro.props;
+---
+
+<style>
+    .status-specie {
+        display: flex;
+        align-items: center;
+
+        > .circle {
+            height: 0.5rem;
+            aspect-ratio: 1;
+            border-radius: 100%;
+            background-color: lch(50 52.07 278.94);
+
+            &.alive {
+                background-color: lch(73 76.64 134.52);
+            }
+
+            &.dead {
+                background-color: lch(50 74.86 37.17);
+            }
+        }
+    }
+</style>
+<div class="status-specie">
+    <div class:list={["circle", status.toLowerCase()]}></div>&nbsp;<span>{status}</span>&nbsp;-&nbsp;<span>{species}</span>
+</div>

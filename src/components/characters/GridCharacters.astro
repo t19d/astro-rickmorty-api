@@ -1,0 +1,28 @@
+---
+import type { Character } from "../../models/api.model";
+import CardCharacter from "./CardCharacter.astro";
+interface Props {
+    characters: Character[];
+}
+
+const { characters } = Astro.props;
+---
+
+<style>
+    .grid {
+        display: grid;
+        grid-template-columns: repeat(4, 1fr);
+        gap: 1rem;
+
+        @media (width <= 1024px) {
+            grid-template-columns: repeat(2, 1fr);
+        }
+
+        @media (width <= 768px) {
+            grid-template-columns: repeat(1, 1fr);
+        }
+    }
+</style>
+<section class="grid">
+    {characters.map((character: Character) => <CardCharacter character={character} />)}
+</section>

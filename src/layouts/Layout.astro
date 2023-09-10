@@ -1,5 +1,5 @@
 ---
-import Header from "../components/Header.astro";
+import Header from "../components/common/Header.astro";
 interface Props {
     title?: string;
 }
@@ -28,6 +28,7 @@ const title = Astro.props.title ?? "Rick and Morty API";
 <style is:global>
     :root {
         --color-light: lch(87 0.02 356.63);
+        --color-light-transparent: lch(87 0.02 356.63 / 0.25);
         --color-dark-rm: lch(8 11.89 282.28);
         --color-blue-rm: lch(64 38.97 211.46);
         --color-green-rm: lch(71 63.52 123.65);
@@ -53,5 +54,82 @@ const title = Astro.props.title ?? "Rick and Morty API";
             "Open Sans",
             "Helvetica Neue",
             sans-serif;
+    }
+
+    main {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        gap: 1rem;
+        padding: 5vh 5vw;
+        max-width: 2000px;
+        margin-inline: auto;
+    }
+
+    .pagination {
+        display: flex;
+        gap: 1rem;
+        align-items: center;
+    }
+
+    .grid {
+        display: grid;
+        grid-template-columns: repeat(4, 1fr);
+        gap: 1rem;
+        @media (width <= 1024px) {
+            grid-template-columns: repeat(2, 1fr);
+        }
+        @media (width <= 768px) {
+            grid-template-columns: repeat(1, 1fr);
+        }
+        > .card {
+            display: grid;
+            grid-template-columns: 2fr 3fr;
+            gap: 1rem;
+            background-color: var(--color-light-transparent);
+            min-height: 200px;
+            border-radius: 0.5rem;
+            overflow: hidden;
+            box-shadow: 0 0 10px var(--color-light-transparent);
+            transition: box-shadow 0.3s;
+            &:hover {
+                box-shadow: 0 0 10px var(--color-green-rm);
+            }
+            > .img {
+                background-size: cover;
+                background-repeat: no-repeat;
+                background-position: center center;
+            }
+            > .details {
+                display: flex;
+                flex-direction: column;
+                justify-content: center;
+                gap: 1rem;
+                padding-block: 1rem;
+                > .name {
+                    font-size: 2rem;
+                }
+                > *:not(.location) {
+                    font-weight: bold;
+                }
+            }
+
+            .status-specie {
+                display: flex;
+                align-items: center;
+                > .circle {
+                    height: 0.5rem;
+                    aspect-ratio: 1;
+                    border-radius: 100%;
+                    background-color: lch(50 52.07 278.94);
+                    &.alive {
+                        background-color: lch(73 76.64 134.52);
+                    }
+                    &.dead {
+                        background-color: lch(50 74.86 37.17);
+                    }
+                }
+            }
+        }
     }
 </style>
