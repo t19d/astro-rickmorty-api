@@ -1,0 +1,18 @@
+---
+import Layout from "../layouts/Layout.astro";
+const gif = "https://media.tenor.com/vZjt6-cM9bYAAAAd/rick-and-morty-rick.gif";
+---
+
+<style>
+    section {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+    }
+</style>
+<Layout>
+    <section>
+        <p>Whoops! Whatever you are looking for cannot be found.</p>
+        <img src={gif} alt="not found" />
+    </section>
+</Layout>
