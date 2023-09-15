@@ -1,8 +1,70 @@
 ---
-import GridCharacters from "../components/characters/GridCharacters.tsx";
 import Layout from "../layouts/Layout.astro";
 ---
 
+<style>
+    a {
+        position: relative;
+        display: inline-flex;
+        align-items: center;
+        gap: 0.5rem;
+        color: currentColor;
+        text-decoration: none;
+        font-weight: bold;
+        padding-block-end: 0.5rem;
+
+        &::after {
+            content: "";
+            position: absolute;
+            width: 0;
+            height: 0.05rem;
+            bottom: 0;
+            left: 50%;
+            transform: translateY(-50%);
+            background-color: var(--color-green-rm);
+            box-shadow: 0 0 5px var(--color-yellow-green-rm);
+            transition: all 0.3s;
+        }
+
+        &:hover::after {
+            width: 100%;
+            left: 0;
+        }
+
+        > svg {
+            width: 1rem;
+        }
+
+        > span {
+            display: block;
+            min-width: fit-content;
+            font-size: 1rem;
+            line-height: 1rem;
+        }
+    }
+</style>
+
 <Layout>
-    <GridCharacters client:load />
+    <a href="/characters">
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor">
+            <circle cx="12" cy="4" r="2"></circle><path d="M15 22V9h5V7H4v2h5v13h2v-7h2v7z"></path>
+        </svg>
+        <span>go to characters</span>
+    </a>
+    <a href="/locations">
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor">
+            <path d="m12 17 1-2V9.858c1.721-.447 3-2 3-3.858 0-2.206-1.794-4-4-4S8 3.794 8 6c0 1.858 1.279 3.411 3 3.858V15l1 2z"></path><path
+                d="m16.267 10.563-.533 1.928C18.325 13.207 20 14.584 20 16c0 1.892-3.285 4-8 4s-8-2.108-8-4c0-1.416 1.675-2.793 4.267-3.51l-.533-1.928C4.197 11.54 2 13.623 2 16c0 3.364 4.393 6 10 6s10-2.636 10-6c0-2.377-2.197-4.46-5.733-5.437z"
+            ></path>
+        </svg>
+        <span>go to locations</span>
+    </a>
+    <a href="/episodes">
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor">
+            <path
+                d="M18.618 7.462 6.403 2.085a1.007 1.007 0 0 0-.77-.016 1.002 1.002 0 0 0-.552.537l-3 7a1 1 0 0 0 .525 1.313L9.563 13.9 8.323 17H4v-3H2v8h2v-3h4.323c.823 0 1.552-.494 1.856-1.258l1.222-3.054 3.419 1.465a1 1 0 0 0 1.311-.518l3-6.857a1 1 0 0 0-.513-1.316zm1.312 8.91-1.858-.742 1.998-5 1.858.741z"
+            ></path>
+        </svg>
+        <span>go to episodes</span>
+    </a>
 </Layout>

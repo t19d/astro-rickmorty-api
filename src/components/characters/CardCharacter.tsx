@@ -7,11 +7,11 @@ interface Props {
 
 export default function CardCharacter({ character }: Props) {
     return (
-        <article className="card" style={`background-image: url(${character.image});`}>
+        <a href={`/characters/${character.id}`} className="card" style={`background-image: url(${character.image});`}>
             <div className="details">
                 <span className="name">{character.name}</span>
                 <StatusSpecie status={character.status} species={character.species} />
             </div>
-        </article>
+        </a>
     );
 }

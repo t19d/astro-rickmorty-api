@@ -1,0 +1,102 @@
+---
+import Layout from "../../layouts/Layout.astro";
+import StatusSpecie from "../../components/characters/StatusSpecie";
+import { getApiCharacter } from "../../services/api.service";
+import type { Character } from "../../models/api.model";
+
+export const prerender = false;
+
+const { id } = Astro.params;
+
+let character: Character | undefined;
+if (id) character = await getApiCharacter(id);
+---
+
+<style>
+    a {
+        position: relative;
+        display: inline-flex;
+        align-items: center;
+        gap: 0.25rem;
+        color: currentColor;
+        text-decoration: none;
+        font-weight: bold;
+        padding-block-end: 0.5rem;
+
+        &::after {
+            content: "";
+            position: absolute;
+            width: 0;
+            height: 0.05rem;
+            bottom: 0;
+            left: 50%;
+            transform: translateY(-50%);
+            background-color: var(--color-green-rm);
+            box-shadow: 0 0 5px var(--color-yellow-green-rm);
+            transition: all 0.3s;
+        }
+
+        &:hover::after {
+            width: 100%;
+            left: 0;
+        }
+
+        > svg {
+            width: 1rem;
+        }
+
+        > span {
+            display: block;
+            min-width: fit-content;
+            font-size: 1rem;
+            line-height: 1rem;
+        }
+    }
+
+    .key {
+        letter-spacing: 1px;
+    }
+
+    .value {
+        font-weight: bold;
+    }
+</style>
+
+<Layout>
+    {
+        character && (
+            <>
+                <a href="/characters">
+                    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor">
+                        <path d="M21 11H6.414l5.293-5.293-1.414-1.414L2.586 12l7.707 7.707 1.414-1.414L6.414 13H21z" />
+                    </svg>
+                    <span>Back to list</span>
+                </a>
+                <h1>{character.name}</h1>
+                <img src={character.image} alt={character.name} />
+
+                <StatusSpecie status={character.status} species={character.species} client:load />
+                <div class="row">
+                    <span class="key">Episode Count</span>: <span class="value">{character.episode.length}</span>
+                </div>
+                <div class="row">
+                    <span class="key">Species</span>: <span class="value">{character.species}</span>
+                </div>
+                {character.type && (
+                    <div class="row">
+                        <span class="key">Type</span>: <span class="value">{character.type}</span>
+                    </div>
+                )}
+                <div class="row">
+                    <span class="key">Gender</span>: <span class="value">{character.gender}</span>
+                </div>
+                <div class="row">
+                    <span class="key">Origin</span>: <span class="value">{character.origin.name}</span>
+                </div>
+                <div class="row">
+                    <span class="key">Location</span>: <span class="value">{character.location.name}</span>
+                </div>
+            </>
+        )
+    }
+</Layout>

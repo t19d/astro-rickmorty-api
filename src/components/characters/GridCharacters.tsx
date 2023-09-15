@@ -6,9 +6,7 @@ import type { Character } from "../../models/api.model";
 import CardCharacter from "./CardCharacter.tsx";
 import Pagination from "../common/Pagination.tsx";
 
-interface Props {}
-
-export default function CharactersList() {
+export default function GridCharacters() {
     const [characters, setCharacters] = useState<Character[]>([]);
     const [info, setInfo] = useState<any>({});
     const $currentPage = useStore(currentPage);
