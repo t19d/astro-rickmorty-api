@@ -48,11 +48,30 @@ Here's an overview of the project structure:
 │   └── favicon.svg
 ├── src/
 │   ├── components/
-│   │   └── Card.astro
+│   │   ├── characters/
+│   │   │   └── CardCharacter.tsx
+│   │   │   └── DetailsCharacter.tsx
+│   │   │   └── GridCharacters.tsx
+│   │   │   └── StatusSpecie.tsx
+│   │   ├── common/
+│   │   │   └── Header.astro
+│   │   │   └── Pagination.tsx
 │   ├── layouts/
 │   │   └── Layout.astro
-│   └── pages/
-│       └── index.astro
+│   ├── models/
+│   │   └── api.model.ts
+│   ├── pages/
+│   │   ├── characters/
+│   │   │   └── [id].astro
+│   │   └── 404.astro
+│   │   └── characters.astro
+│   │   └── episodes.astro
+│   │   └── index.astro
+│   │   └── locations.astro
+│   ├── services/
+│   │   └── api.service.ts
+│   └── stores/
+│       └── characters.store.ts
 └── package.json
 ```
 
