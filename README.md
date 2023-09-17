@@ -53,9 +53,9 @@ Here's an overview of the project structure:
 │   │   │   └── DetailsCharacter.tsx
 │   │   │   └── GridCharacters.tsx
 │   │   │   └── StatusSpecie.tsx
-│   │   ├── common/
-│   │   │   └── Header.astro
-│   │   │   └── Pagination.tsx
+│   │   └── common/
+│   │       └── Header.astro
+│   │       └── Pagination.tsx
 │   ├── layouts/
 │   │   └── Layout.astro
 │   ├── models/
@@ -72,7 +72,12 @@ Here's an overview of the project structure:
 │   │   └── api.service.ts
 │   └── stores/
 │       └── characters.store.ts
-└── package.json
+├── .gitignore
+├── README.md
+├── astro.config.mjs
+├── package-lock.json
+├── package.json
+└── tsconfig.json
 ```
 
 The app uses Astro to look for .astro files in the src/pages/ directory, which are exposed as routes based on their file names. The src/components/ directory is where we keep our Astro components.
